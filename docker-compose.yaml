@@ -18,12 +18,19 @@ services:
       CONNECTOR_CLIENT_CONFIG_OVERRIDE_POLICY: All
       KEY_CONVERTER_SCHEMAS_ENABLE: false
       VALUE_CONVERTER_SCHEMAS_ENABLE: false
+      EXACTLY_ONCE_SOURCE_SUPPORT: "enabled"
 #    depends_on:
 #      - kafka1
 #      - db
     restart: unless-stopped
     volumes:
-      - connect-data:/kafka/connect
+      - debezium-connect:/kafka/connect
+      - debezium-config:/kafka/config
+      - debezium-data:/kafka/data
+      - debezium-logs:/kafka/logs
 
 volumes:
-  connect-data:
+  debezium-connect:
+  debezium-config:
+  debezium-data:
+  debezium-logs:

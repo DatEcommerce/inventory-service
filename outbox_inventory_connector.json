@@ -1,0 +1,22 @@
+{
+  "name": "outbox_inventory",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "tasks.max": "1",
+    "database.hostname": "user_db",
+    "database.port": "3306",
+    "database.user": "db_user",
+    "database.password": "password",
+    "database.server.id": "1001",
+    "topic.prefix": "outbox",
+    "database.include.list": "db_inventory",
+    "table.include.list": "db_inventory.outbox_inventory",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka1:29092",
+    "schema.history.internal.kafka.topic": "schema-changes.outbox_inventory_tracking",
+    "include.schema.changes": "true",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter.schemas.enable": "false"
+  }
+}
