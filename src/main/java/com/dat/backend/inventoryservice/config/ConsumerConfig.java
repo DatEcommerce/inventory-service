@@ -169,5 +169,5 @@ public class ConsumerConfig {
         factory.getContainerProperties().setPollTimeout(2000L);
         factory.setCommonErrorHandler(errorHandler(kafkaTemplate));
         return factory;
-    }
+    }   
 }
